@@ -32,11 +32,11 @@ if (!isNaN(savedClicks)) clickCount = savedClicks;
 // Аватарки
 const avatars = [
     { id: 'valera2', name: 'Обычный Валера', price: 0, img: 'valera2.jpg' },
-    { id: 'valera3', name: 'Цветочный Валера', price: 50, img: 'valera3.jpg' },
-    { id: 'valera4', name: 'Армейский Валера', price: 150, img: 'valera4.jpg' },
-    { id: 'valera5', name: 'Сосущий Валера', price: 300, img: 'valera5.jpg' },
-    { id: 'valera6', name: 'Маленький Валера', price: 500, img: 'valera6.jpg' },
-    { id: 'valera', name: 'Пиздатый Валера', price: 1000, img: 'valera.jpg' }
+    { id: 'valera3', name: 'Цветочный Валера', price: 200, img: 'valera3.jpg' },
+    { id: 'valera4', name: 'Армейский Валера', price: 500, img: 'valera4.jpg' },
+    { id: 'valera5', name: 'Сосущий Валера', price: 800, img: 'valera5.jpg' },
+    { id: 'valera6', name: 'Маленький Валера', price: 3000, img: 'valera6.jpg' },
+    { id: 'valera', name: 'Пиздатый Валера', price: 10000, img: 'valera.jpg' }
 ];
 
 let ownedAvatars = JSON.parse(localStorage.getItem('clickerOwned')) || ['valera2'];
