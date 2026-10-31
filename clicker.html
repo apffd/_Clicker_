@@ -12,12 +12,20 @@
     <div class="score-container">
         <div class="score-label">Ваш счёт</div>
         <div class="score" id="score">0</div>
+        <div class="rank" id="rank">🥚 Новичок</div>
+        <div class="rank-progress">
+            <div class="rank-progress-bar">
+                <div class="rank-progress-fill" id="rankProgressFill"></div>
+            </div>
+            <div class="rank-progress-text" id="rankProgressText">0 / 100 кликов</div>
+        </div>
     </div>
 
     <!-- Навигационные вкладки -->
     <div class="tabs">
         <button class="tab-btn active" data-tab="clicker">Кликер</button>
         <button class="tab-btn" data-tab="shop">🛒 Магазин</button>
+        <button class="tab-btn" data-tab="upgrades">⚡ Улучшения</button>
         <button class="tab-btn" data-tab="roulette">🎰 Рулетка</button>
     </div>
 
@@ -34,9 +42,16 @@
         <div class="shop-container">
             <h2 class="section-title">Магазин аватарок</h2>
             <p class="section-subtitle">Выбери, кем хочешь кликать</p>
-            <div class="shop-grid" id="shopGrid">
-                <!-- Товары будут добавлены через JS -->
-            </div>
+            <div class="shop-grid" id="shopGrid"></div>
+        </div>
+    </div>
+
+    <!-- Контент: Улучшения -->
+    <div class="tab-content" id="tab-upgrades">
+        <div class="shop-container">
+            <h2 class="section-title">Улучшения</h2>
+            <p class="section-subtitle">Прокачай свой кликер</p>
+            <div class="shop-grid" id="upgradesGrid"></div>
         </div>
     </div>
 
