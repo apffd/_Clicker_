@@ -13,7 +13,7 @@ body {
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
-    padding-top: 80px; /* Отступ сверху для кнопки "Назад" */
+    padding-top: 80px;
     overflow-x: hidden;
     position: relative;
 }
@@ -92,10 +92,9 @@ body::before {
 
 @keyframes pop {
     0% { transform: scale(1); }
-    50% { transform: scale(1.2); }
+    50% { transform: scale(1.02); }
     100% { transform: scale(1); }
 }
-
 /* Вкладки */
 .tabs {
     display: flex;
@@ -107,6 +106,8 @@ body::before {
     border: 1px solid rgba(255, 255, 255, 0.1);
     backdrop-filter: blur(10px);
     z-index: 10;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
 .tab-btn {
@@ -223,7 +224,7 @@ body::before {
     text-align: center;
 }
 
-/* --- Стили Магазина --- */
+/* --- Стили Магазина и Улучшений --- */
 .shop-container {
     background: rgba(255, 255, 255, 0.05);
     border: 1px solid rgba(255, 255, 255, 0.1);
@@ -235,7 +236,7 @@ body::before {
 
 .shop-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
     gap: 20px;
     max-height: 50vh;
     overflow-y: auto;
@@ -254,6 +255,9 @@ body::before {
     text-align: center;
     transition: all 0.3s;
     cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .shop-item:hover {
@@ -262,6 +266,7 @@ body::before {
     transform: translateY(-5px);
 }
 
+/* Стили для картинок в магазине аватарок */
 .shop-item img {
     width: 100%;
     aspect-ratio: 1;
@@ -287,6 +292,7 @@ body::before {
     color: #ffd700;
     font-weight: 800;
     font-size: 1.1rem;
+    margin-top: auto;
 }
 
 .shop-item .status {
@@ -299,6 +305,30 @@ body::before {
 .shop-item.locked {
     opacity: 0.6;
     filter: grayscale(1);
+}
+
+/* Дополнительные стили для иконок улучшений */
+.upgrade-icon {
+    font-size: 3rem;
+    margin-bottom: 10px;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.upgrade-desc {
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.6);
+    margin-bottom: 10px;
+    flex-grow: 1;
+}
+
+.upgrade-level {
+    color: #ffd700;
+    margin-top: 5px;
+    font-weight: bold;
+    font-size: 0.9rem;
 }
 
 /* --- Стили Рулетки --- */
@@ -527,10 +557,77 @@ body::before {
     box-shadow: 0 0 10px #ffd700;
 }
 
+/* Адаптивность */
 @media (max-width: 600px) {
     .click-btn { width: 200px; height: 200px; }
     .score { font-size: 2.5rem; }
-    .tabs { width: 90%; flex-direction: column; }
+    .tabs { width: 90%; }
+    .tab-btn { padding: 10px 15px; font-size: 0.9rem; }
     .shop-container, .roulette-container { padding: 20px; }
     .shop-grid { grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); }
+    .upgrade-icon { height: 70px; font-size: 2.5rem; }
+}
+.rank {
+    margin-top: 8px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    color: rgba(255, 255, 255, 0.7);
+    text-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+    transition: all 0.4s ease;
+    display: inline-block;
+    padding: 6px 18px;
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.rank.upgraded {
+    animation: rankPop 0.6s ease;
+}
+
+@keyframes rankPop {
+    0% { transform: scale(1); }
+    40% { transform: scale(1.25); box-shadow: 0 0 30px currentColor; }
+    100% { transform: scale(1); }
+}
+/* Прогресс звания */
+.rank-progress {
+    margin-top: 10px;
+    width: 220px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.rank-progress-bar {
+    width: 100%;
+    height: 10px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.rank-progress-fill {
+    height: 100%;
+    width: 0%;
+    background: linear-gradient(90deg, #ffd700, #ffaa00);
+    border-radius: 10px;
+    transition: width 0.4s ease, background 0.4s ease;
+    box-shadow: 0 0 10px rgba(255, 215, 0, 0.6);
+}
+
+.rank-progress-text {
+    margin-top: 6px;
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.6);
+    text-align: center;
+    letter-spacing: 0.5px;
+}
+
+/* Мягкая анимация для карточек (если ещё нет) */
+@keyframes softPop {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.03); }
+    100% { transform: scale(1); }
 }
