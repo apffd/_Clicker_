@@ -14,12 +14,65 @@
         <div class="score" id="score">0</div>
     </div>
 
-    <button class="click-btn" id="clickBtn">
-        <!-- Замените ссылку на своё фото -->
-        <img src="valera.jpg" alt="Кликер">
-    </button>
+    <!-- Навигационные вкладки -->
+    <div class="tabs">
+        <button class="tab-btn active" data-tab="clicker">Кликер</button>
+        <button class="tab-btn" data-tab="shop">🛒 Магазин</button>
+        <button class="tab-btn" data-tab="roulette">🎰 Рулетка</button>
+    </div>
 
-    <p class="hint">Нажимай на картинку 👆</p>
+    <!-- Контент: Кликер -->
+    <div class="tab-content active" id="tab-clicker">
+        <button class="click-btn" id="clickBtn">
+            <img src="valera2.jpg" alt="Кликер" id="mainImage">
+        </button>
+        <p class="hint">Нажимай на картинку 👆</p>
+    </div>
+
+    <!-- Контент: Магазин -->
+    <div class="tab-content" id="tab-shop">
+        <div class="shop-container">
+            <h2 class="section-title">Магазин аватарок</h2>
+            <p class="section-subtitle">Выбери, кем хочешь кликать</p>
+            <div class="shop-grid" id="shopGrid">
+                <!-- Товары будут добавлены через JS -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Контент: Рулетка -->
+    <div class="tab-content" id="tab-roulette">
+        <div class="roulette-container">
+            <h2 class="section-title">Колесо Фортуны</h2>
+            <p class="section-subtitle">Удвой свои очки или потеряй всё</p>
+            
+            <div class="wheel-wrapper">
+                <div class="wheel-pointer">▼</div>
+                <div class="wheel" id="wheel">
+                    <div class="wheel-inner">
+                        <span class="wheel-text win">x2</span>
+                        <span class="wheel-text lose">0</span>
+                        <span class="wheel-text win">x2</span>
+                        <span class="wheel-text lose">0</span>
+                        <span class="wheel-text win">x2</span>
+                        <span class="wheel-text lose">0</span>
+                        <span class="wheel-text win">x2</span>
+                        <span class="wheel-text lose">0</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bet-controls">
+                <label>Ваша ставка:</label>
+                <div class="bet-input-group">
+                    <input type="number" id="betAmount" placeholder="Введите сумму" min="1" value="10">
+                    <button class="all-in-btn" id="allInBtn">ВСЁ</button>
+                </div>
+                <button class="spin-btn" id="spinBtn">КРУТИТЬ (x2)</button>
+                <p class="roulette-msg" id="rouletteMsg"></p>
+            </div>
+        </div>
+    </div>
 
     <script src="js/clicker.js"></script>
 </body>
